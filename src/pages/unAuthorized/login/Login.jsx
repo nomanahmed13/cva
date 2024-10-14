@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
-import MainLogo from '../../../icons/MainLogo'
-import LoginFormLogo from '../../../icons/LoginFormLogo'
 import { useMutation } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
-import { login } from '../../../api/authApi'
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from  '@api/authApi';
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import { LuLoader } from 'react-icons/lu'
-import '@styles/_login.css';
-
+import AuthFormLogo from  '@assets/cva-logo.png';
+import '@styles/_auth.css';
 
 const Login = () => {
 
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading,setLoading] =useState(false);
@@ -32,14 +30,14 @@ const Login = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       setLoading(true);
-      const trimmedEmail = email.trim();
+      const trimmedUsername = username.trim();
       const trimmedPassword = password.trim();
-      if (!trimmedEmail || !trimmedPassword) {
-          toast.error('Email and password are required');
+      if (!trimmedUsername || !trimmedPassword) {
+          toast.error('All fields are required');
           setLoading(false);
           return;
       }
-      mutation.mutate({ email: trimmedEmail, password: trimmedPassword });
+      mutation.mutate({ username: trimmedUsername, password: trimmedPassword });
     };
 
     const togglePasswordVisibility = () => {
@@ -47,72 +45,70 @@ const Login = () => {
     };
 
   return (
-    <div className='login-body'>
-      <div className="login-header">
-        <h1>
-            <MainLogo />
-        </h1>
-      </div>
-      <div className='login-wraper'>
-        <div className='login-form-wraper'>
-          <div className="login-form-head">
-            <div className="login-form-logo">
-              <LoginFormLogo />
-            </div>
-            <h2>Log in to your account</h2>
-            <p>Welcome back! Please enter your details.</p>
-          </div>
-          <div className="login-form-body">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="">Email</label>
-                  <div className="input-wrap">
-                  <input
-                      id="email"
-                      placeholder="Enter your email"
-                      type="email"
-                      className="input-elm"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                  />
-                  </div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="">Password</label>
-                <div className="input-wrap">
-                  <input
-                      id="password"
-                      placeholder="**********"
-                      type={showPassword ? "text" : "password"}
-                      className="input-elm"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <div className="eye-btn" onClick={togglePasswordVisibility}>
-                    {showPassword ? <FaEye /> : <FaEyeSlash />}
-                  </div>
+    <div className='auth-body'>
+        <div className='auth-form-wraper'>
+          <div className='auth-card'>
+              <div className="auth-form-head">
+                <div className="auth-form-logo">
+                  <img src={AuthFormLogo} alt='' />
                 </div>
+                <h2>Login to your account 👋</h2>
+                <p>Welcome back! Please enter your details.</p>
               </div>
-              <div className="forgot-btn-wrap">
-                <button>Forgot password</button>
+              <div className="auth-form-body">
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="email">Username</label>
+                      <div className="input-wrap">
+                      <input
+                          id="email"
+                          placeholder="Enter your Username"
+                          type="email"
+                          className="input-elm"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                      />
+                      </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <div className="input-wrap">
+                      <input
+                          id="password"
+                          placeholder="**********"
+                          type={showPassword ? "text" : "password"}
+                          className="input-elm"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <div className="eye-btn" onClick={togglePasswordVisibility}>
+                        {showPassword ? <FaEye /> : <FaEyeSlash />}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="forgot-btn-wrap">
+                    <button>Forgot password</button>
+                  </div>
+                  <div className="auth-form-btn">
+                    <button className="site-btn btn-secondery" disabled={isLoading}>
+                      {isLoading ? (
+                        <>
+                          <span>Signing...</span>
+                          <LuLoader />
+                        </>
+                      ) : (
+                        "Sign in"
+                      )}
+                    </button>
+                  </div>
+                </form>
+                <p className="platform">
+                    <span>New on our platform?</span>
+                    <Link to={''}>Create an account</Link>
+                </p>
               </div>
-              <div className="login-form-btn">
-                <button className="site-btn btn-secondery" type="submit" disabled={isLoading}>
-                  {isLoading ? (
-                    <>
-                      <span>Signing...</span>
-                      <LuLoader />
-                    </>
-                  ) : (
-                    "Sign in"
-                  )}
-                </button>
-                <button className="site-btn btn-primeray">Sign in with SSO</button>
-              </div>
-            </form>
             </div>
         </div>
-      </div>
     </div>
   )
 }

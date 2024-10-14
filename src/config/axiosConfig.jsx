@@ -3,7 +3,7 @@ import { store } from '../redux/store';
 import { logout } from '../redux/slices/authSlice';
 import toast from 'react-hot-toast';
 
-const BASE_URL = '';
+const BASE_URL = 'http://localhost:3055/v1';
 
 
 const api = axios.create({
@@ -29,9 +29,17 @@ api.interceptors.request.use(
 		const isAuthenticated = account?.isAuthenticated;
 		const token = account?.token;
 
+		const xtUserToken = request.headers['xt-user-token'];
+		const xtClientToken = request.headers['xt-client-token'];
+
 		// if token and isLoggedIn true then it fetch the data
 		if (token && isAuthenticated) {
-			request.headers.Authorization =`Bearer ${token}`;
+			if (xtUserToken === null) {
+				request.headers["xt-user-token"] = `${token}`;
+			}
+			if (xtClientToken === null) {
+				request.headers["xt-client-token"] = `${token}`;
+			}
 		}
 
 		return request;
