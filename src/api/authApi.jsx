@@ -17,7 +17,6 @@ export const login = async (credentials) => {
       }
         return response;
       } catch (error) {
-        debugger
         toast.error(error.response.data.message)
       }
 };

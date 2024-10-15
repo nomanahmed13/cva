@@ -8,6 +8,7 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { LuLoader } from 'react-icons/lu'
 import AuthFormLogo from  '@assets/cva-logo.png';
 import '@styles/_auth.css';
+import ButtonLoader from '../../../components/ButtonLoader';
 
 const Login = () => {
 
@@ -92,12 +93,9 @@ const Login = () => {
                   <div className="auth-form-btn">
                     <button className="site-btn btn-secondery" disabled={isLoading}>
                       {isLoading ? (
-                        <>
-                          <span>Signing...</span>
-                          <LuLoader />
-                        </>
+                        <ButtonLoader />
                       ) : (
-                        "Sign in"
+                        "Login"
                       )}
                     </button>
                   </div>
