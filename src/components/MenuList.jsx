@@ -10,23 +10,25 @@ const MenuList = ({ item }) => {
   };
 
   return (
-    <div>
-      <div className="menu-item">
+    <>
+      <li>
         <Link to={item.path || '#'} onClick={item.children && toggleSubmenu}>
-          {item.icon} {item.title}
+          {item.icon} <span>{item.title}</span>
           {item.children && (isOpen ? <FaAngleUp /> : <FaAngleDown />)}
         </Link>
-      </div>
-      {isOpen && item.children && (
-        <div className="submenu">
-          {item.children.map((subItem, index) => (
-            <Link to={subItem.path} key={index} className="submenu-item">
-              {subItem.title}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
+        {isOpen && item.children && (
+          <ul>
+            <li className="sub_menu">
+              {item.children.map((subItem, index) => (
+                <Link to={subItem.path} key={index} className="submenu-item">
+                  {subItem.title}
+                </Link>
+              ))}
+            </li>
+          </ul>
+        )}
+      </li>
+    </>
   );
 };
 

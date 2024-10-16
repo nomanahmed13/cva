@@ -4,7 +4,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 /************* Un Authorized *************/
 
 import Login from  '@unAuthPages/login/Login';
-//import DashboardLayout from  '@layouts/dashboardLayout/DashboardLayout';
+import DashboardLayout from  '@layouts/dashboardLayout/DashboardLayout';
 import AuthLayout from  '@layouts/authLayout/AuthLayout';
 
 /************* Authorized *************/
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        //element: <DashboardLayout />,
+        element: <DashboardLayout />,
         children: [
             { path: '', element: <Navigate to="home" /> },
             { path: 'home', element: <Home /> },

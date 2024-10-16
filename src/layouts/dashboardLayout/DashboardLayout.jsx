@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import { Layout, Menu } from 'antd';
+//import { Layout, Menu } from 'antd';
 import { Link, Navigate, Outlet } from 'react-router-dom';
-import { items } from '../../helpers/MenuList';
-import MainLogo from '../../icons/MainLogo';
-import sidebarCloseBtn from'../../assets/angle-double.png';
+//import { items } from '../../helpers/MenuList';
+//import MainLogo from '../../icons/MainLogo';
+//import sidebarCloseBtn from'../../assets/angle-double.png';
 import { useSelector } from 'react-redux';
-import MainLogoWithoutPath from '../../icons/MainLogoWithoutPath';
+//import MainLogoWithoutPath from '../../icons/MainLogoWithoutPath';
 import { CiSearch } from "react-icons/ci";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import Profile from'../../assets/profile.png';
-import '@styles/_dashboard.css';
+//import Profile from'../../assets/profile.png';
+//import '@styles/_dashboard.css';
 import { MenuItems } from '@view/MenuItems';
 import MenuList from '@components/MenuList';
 
@@ -75,15 +75,17 @@ const DashboardLayout = () => {
             </button>
         </div>
       </Sider> */}
-        <div className="sidebar">
-            {MenuItems.map((item, index) => (
-                <MenuList item={item} key={index} />
-            ))}
-        </div>
-      <main className="site-main">
-          <header className="main-header">
-            <div className="search-widget">
-                <div className="input-wrap">
+      <aside className="sidebar">
+        <ul>
+          {MenuItems.map((item, index) => (
+              <MenuList item={item} key={index} />
+          ))}
+        </ul>
+      </aside>
+      <main className="site_main">
+          <header className="main_header">
+            <div className="search_widget">
+                <div className="input_wrap">
                     <input type="search" name="" id="" placeholder="Search" />
                     <button className="input-icon"> <CiSearch /></button>
                 </div>
@@ -128,17 +130,17 @@ const DashboardLayout = () => {
                         </div>
                       )}
                   </div> */}
-                  <div className='profile-cover'>
+                  <div className='profile_cover'>
                     <div className="icon">
                         <button><IoMdNotificationsOutline /></button>
                     </div>
-                    <div className="icon img-icon">
-                        <img src={Profile} alt="" />
+                    <div className="icon img_icon">
+                        {/* <img src={Profile} alt="" /> */}
                     </div>
                   </div>
               </div>
           </header>
-          <div className='main-body'>
+          <div className='main_body'>
               <Outlet />
           </div>
       </main>

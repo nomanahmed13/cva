@@ -5,10 +5,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { login } from  '@api/authApi';
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
-import { LuLoader } from 'react-icons/lu'
 import AuthFormLogo from  '@assets/cva-logo.png';
+import ButtonLoader from '@components/ButtonLoader';
 import '@styles/_auth.css';
-import ButtonLoader from '../../../components/ButtonLoader';
 
 const Login = () => {
 
@@ -21,9 +20,9 @@ const Login = () => {
 
     const mutation = useMutation({
       mutationFn: login,
-      onSuccess: (response) => {
+      onSuccess: () => {
           setLoading(false);
-          toast.success(response.data.message);
+          toast.success('Login Successfully...!');
           navigate('/dashboard/home');
       },
     });
@@ -64,7 +63,7 @@ const Login = () => {
                       <input
                           id="email"
                           placeholder="Enter your Username"
-                          type="email"
+                          type="text"
                           className="input-elm"
                           value={username}
                           onChange={(e) => setUsername(e.target.value)}
