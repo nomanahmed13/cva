@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { Link, Navigate, Outlet } from 'react-router-dom';
+import React, { useRef, useState } from 'react'
+import {  Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { CiSearch } from "react-icons/ci";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { TfiLayoutGrid2 } from "react-icons/tfi";
+import { BsMoonStars } from "react-icons/bs";
+import { FaRegUser } from "react-icons/fa";
+import { IoIosLogOut } from 'react-icons/io';
 import { MenuItems } from '@view/MenuItems';
 import MenuList from '@components/MenuList';
 import '@styles/_dashboard.css';
@@ -11,8 +13,26 @@ import '@styles/_dashboard.css';
 
 const DashboardLayout = () => {
 
+
+  /* Redux Here...*/
   const token  = useSelector((state) => state.auth.token);
+
+  /* UseState Here...*/
+  const [isVisible, setIsVisible] = useState(false);
+
+  /* Variables Here...*/
   const currentYear = new Date().getFullYear();
+  const toggleVisibility = () => setIsVisible(!isVisible);
+  const profileRef = useRef(null);
+
+
+  /* Functions Here...*/
+  const handleClickOutside = (event) => {
+    if (profileRef.current && !profileRef.current.contains(event.target)) {
+      setIsVisible(false);
+    }
+  };
+  document.addEventListener('mousedown', handleClickOutside);
 
   if (token === null) {
     return <Navigate to={'/auth/login'} replace />;
@@ -32,18 +52,26 @@ const DashboardLayout = () => {
       <main className="site_main">
           <header className="main_header">
             <div className="search_widget">
-                <div className="input_wrap">
+                {/* <div className="input_wrap">
                     <input type="search" name="" id="" placeholder="Search" />
                     <button className="input-icon"> <CiSearch /></button>
-                </div>
+                </div> */}
             </div>
             <div className="header-right">
                   <div className='profile_cover'>
                     <div className="icon">
-                        
+                        <button><BsMoonStars /></button>
+                    </div>
+                    <div className="icon">
+                        <button><TfiLayoutGrid2 /></button>
                     </div>
                     <div className="icon img_icon">
-                        
+                        <button onClick={toggleVisibility}><FaRegUser /></button>
+                        <div ref={profileRef} className={`profile ${isVisible ? 'visible' : ''}`}>
+                          <ul>
+                            <li><IoIosLogOut /><span>Log Out</span></li>
+                          </ul>
+                        </div>
                     </div>
                   </div>
               </div>
