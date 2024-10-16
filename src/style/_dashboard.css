@@ -1,0 +1,53 @@
+.site-wraper {
+    min-height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    transition: all 0.2s, background 0s;
+    position: relative;
+    background: transparent;
+    box-shadow: 0 0.125rem 0.25rem rgba(165, 163, 174, 0.3);
+    width: 300px;
+}
+
+.sider {
+    position: fixed;
+    width: 300px;
+    transition: all 0.2s, background 0s;
+    height: 100%;
+}
+
+.site_main {
+    width: 100%;
+    background: #ededed;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main_header {
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.main_body {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+footer p {
+    text-align: center;
+    margin-top: 15px;
+    color: #000;
+    font-size: var(--size16);
+    font-family: var(--family);
+    font-weight: var(--weight-regular);
+}
