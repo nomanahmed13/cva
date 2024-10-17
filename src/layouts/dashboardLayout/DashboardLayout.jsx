@@ -9,10 +9,7 @@ import { MenuItems } from '@view/MenuItems';
 import MenuList from '@components/MenuList';
 import '@styles/_dashboard.css';
 
-
-
 const DashboardLayout = () => {
-
 
   /* Redux Here...*/
   const token  = useSelector((state) => state.auth.token);
@@ -22,17 +19,21 @@ const DashboardLayout = () => {
 
   /* Variables Here...*/
   const currentYear = new Date().getFullYear();
-  const toggleVisibility = () => setIsVisible(!isVisible);
   const profileRef = useRef(null);
 
-
   /* Functions Here...*/
+  const toggleVisibility = (event) => {
+    event.stopPropagation();
+     setIsVisible((prev) => !prev);
+   };
+
   const handleClickOutside = (event) => {
     if (profileRef.current && !profileRef.current.contains(event.target)) {
       setIsVisible(false);
     }
   };
   document.addEventListener('mousedown', handleClickOutside);
+
 
   if (token === null) {
     return <Navigate to={'/auth/login'} replace />;
@@ -42,7 +43,10 @@ const DashboardLayout = () => {
     <div className='site-wraper'>
       <aside className="sidebar">
         <div className='sider'>
-          <ul>
+          <div className='sidebar_logo'>
+              <h1>cva</h1>
+          </div>
+          <ul className='sidebar_menu'>
             {MenuItems.map((item, index) => (
                 <MenuList item={item} key={index} />
             ))}
@@ -66,7 +70,7 @@ const DashboardLayout = () => {
                         <button><TfiLayoutGrid2 /></button>
                     </div>
                     <div className="icon img_icon">
-                        <button onClick={toggleVisibility}><FaRegUser /></button>
+                        <button onMouseDown={toggleVisibility}><FaRegUser /></button>
                         <div ref={profileRef} className={`profile ${isVisible ? 'visible' : ''}`}>
                           <ul>
                             <li><IoIosLogOut /><span>Log Out</span></li>
