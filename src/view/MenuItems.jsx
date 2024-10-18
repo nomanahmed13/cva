@@ -1,38 +1,42 @@
 import { FaHome } from 'react-icons/fa';
+import { FaBuilding } from "react-icons/fa";
+import { TbBrandCodepen } from "react-icons/tb";
+import { FaUsers } from "react-icons/fa";
+import { MdCampaign } from "react-icons/md";
+import { AiOutlinePartition } from "react-icons/ai";
 
 export const MenuItems = [
     {
         title: 'Dashboard',
-        path: '/dashboard',
+        path: '/dashboard/home',
         icon: <FaHome />,
     },
     {
         title: 'Organizations',
         path: '/organizations',
-        icon: <FaHome />,
+        icon: <FaBuilding />,
     },
     {
         title: 'Brands',
         path: '/brands',
-        icon: <FaHome />,
+        icon: <TbBrandCodepen />,
     },
     {
         title: 'User',
         path: '/user',
-        icon: <FaHome />,
+        icon: <FaUsers />,
     },
     {
         title: 'Campaign',
-        icon: <FaHome />,
+        icon: <MdCampaign />,
         children: [
             { title: 'Campaign', path: '/campaign' },
-            { title: 'Campaign Details', path: '/campaign-details/:id' },
             { title: 'Deals', path: '/deals' },
         ],
     },
     {
         title: 'BA',
         path: '/ba',
-        icon: <FaHome />,
+        icon: <AiOutlinePartition />,
     },
   ];

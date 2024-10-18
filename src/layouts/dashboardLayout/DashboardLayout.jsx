@@ -2,11 +2,12 @@ import React, { useRef, useState } from 'react'
 import {  Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TfiLayoutGrid2 } from "react-icons/tfi";
-import { BsMoonStars } from "react-icons/bs";
+import { MdOutlineLightMode } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { IoIosLogOut } from 'react-icons/io';
 import { MenuItems } from '@view/MenuItems';
 import MenuList from '@components/MenuList';
+import AuthFormLogo from  '@assets/cva-logo.png';
 import '@styles/_dashboard.css';
 
 const DashboardLayout = () => {
@@ -44,6 +45,7 @@ const DashboardLayout = () => {
       <aside className="sidebar">
         <div className='sider'>
           <div className='sidebar_logo'>
+              <img src={AuthFormLogo} alt='' />
               <h1>cva</h1>
           </div>
           <ul className='sidebar_menu'>
@@ -64,7 +66,7 @@ const DashboardLayout = () => {
             <div className="header-right">
                   <div className='profile_cover'>
                     <div className="icon">
-                        <button><BsMoonStars /></button>
+                        <button><MdOutlineLightMode /></button>
                     </div>
                     <div className="icon">
                         <button><TfiLayoutGrid2 /></button>
