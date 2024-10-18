@@ -8,6 +8,7 @@ import { IoIosLogOut } from 'react-icons/io';
 import { MenuItems } from '@view/MenuItems';
 import MenuList from '@components/MenuList';
 import AuthFormLogo from  '@assets/cva-logo.png';
+import { RxDashboard } from "react-icons/rx";
 import '@styles/_dashboard.css';
 
 const DashboardLayout = () => {
@@ -45,8 +46,15 @@ const DashboardLayout = () => {
       <aside className="sidebar">
         <div className='sider'>
           <div className='sidebar_logo'>
-              <img src={AuthFormLogo} alt='' />
-              <h1>cva</h1>
+              <div className="site_logo">
+                <img src={AuthFormLogo} alt='' />
+                <h1>cva</h1>
+              </div>
+              <div className="toggle_sidebar">
+                <div className="toggle_icon">
+                  <RxDashboard />
+                </div>
+              </div>
           </div>
           <ul className='sidebar_menu'>
             {MenuItems.map((item, index) => (
@@ -57,12 +65,7 @@ const DashboardLayout = () => {
       </aside>
       <main className="site_main">
           <header className="main_header">
-            <div className="search_widget">
-                {/* <div className="input_wrap">
-                    <input type="search" name="" id="" placeholder="Search" />
-                    <button className="input-icon"> <CiSearch /></button>
-                </div> */}
-            </div>
+            
             <div className="header-right">
                   <div className='profile_cover'>
                     <div className="icon">
