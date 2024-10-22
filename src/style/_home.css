@@ -1,0 +1,31 @@
+.top_bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.top_bar .box {
+    background: linear-gradient(135deg, #00A76F, #007867);
+    border-radius: 5px;
+    padding: 15px 15px;
+}
+
+.top_bar .box svg {
+    color: #fff;
+    font-size: var(--size30);
+}
+
+.top_bar .box h3 {
+    font-family: var(--family);
+    font-weight: var(--weight-regular);
+    font-size: var(--size30);
+    color: #fff;
+    margin: 5px 0;
+}
+
+.top_bar .box span {
+    font-family: var(--family);
+    font-weight: var(--weight-medium);
+    font-size: var(--size12);
+    color: #fff;
+}

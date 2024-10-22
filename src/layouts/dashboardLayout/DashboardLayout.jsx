@@ -8,6 +8,7 @@ import { IoIosLogOut } from 'react-icons/io';
 import { MenuItems } from '@view/MenuItems';
 import MenuList from '@components/MenuList';
 import AuthFormLogo from  '@assets/cva-logo.png';
+import hand from '@assets/hand.gif';
 import { RxDashboard } from "react-icons/rx";
 import '@styles/_dashboard.css';
 
@@ -65,7 +66,10 @@ const DashboardLayout = () => {
       </aside>
       <main className="site_main">
           <header className="main_header">
-            
+            <div className='header_left'>
+                <h4>welcome - <span>super admin</span> <img src={hand} alt="hand-gif" /></h4>
+                <p>Here’s what’s happening today...!</p>
+            </div>
             <div className="header-right">
                   <div className='profile_cover'>
                     <div className="icon">

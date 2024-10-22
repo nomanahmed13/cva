@@ -9,7 +9,8 @@
 .sidebar {
     transition: all 0.2s, background 0s;
     position: relative;
-    background: #006666;
+    /* background: #006666; */
+    background: #007f68;
     box-shadow: 0 0.125rem 0.25rem rgba(165, 163, 174, 0.3);
     width: 100%;
     max-width: 300px;
@@ -55,7 +56,7 @@
 
 .toggle_sidebar .toggle_icon svg {
     color: #fff;
-    font-size: 20px;
+    font-size: var( --size22);
 }
 
 .sidebar_logo img {
@@ -65,7 +66,7 @@
 .sidebar_logo h1 {
     color: #fff;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: var( --size30);
     font-family: var(--family);
     font-weight: var(--weight-bold);
 }
@@ -93,7 +94,7 @@
 }
 
 .sidebar_menu li a svg {
-    font-size: 20px;
+    font-size: var( --size20);
     margin-right: 15px;
     color: rgba(255, 255, 255, 0.8);
 }
@@ -174,7 +175,7 @@
 }
 
 
-/********* Site Main ********/
+/********* Site Main and Header********/
 
 .site_main {
     width: 100%;
@@ -190,10 +191,12 @@
     background: #fff;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    align-items: center;
 }
 
 .header-right {
-    width: 100%;
+    width: 50%;
 }
 
 .profile_cover {
@@ -218,13 +221,14 @@
 }
 
 .profile_cover .icon button svg {
-    color: #6f6b7d;
-    font-size: 22px;
+    color: #00a46f;
+    font-size: var(--size22);
+    
 }
 
 .profile_cover .img_icon {
     position: relative;
-    background: #776cf1;
+    background: #00a46f;
     border-radius: 50px;
 }
 
@@ -268,7 +272,7 @@
 }
 
 .profile_cover .profile ul li svg {
-    font-size: 20px;
+    font-size: var(--size20);
     color: #212636;
 }
 
@@ -285,15 +289,52 @@
     border-radius: 5px;
 }
 
+.header_left {
+    width: 50%;
+}
+
+.header_left h4 {
+    font-family: var(--family);
+    font-weight: var(--weight-medium);
+    font-size: var(--size16);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+}
+
+.header_left p {
+    font-family: var(--family);
+    font-weight: var(--weight-regular);
+    font-size: var(--size12);
+    color: rgba(82, 82, 108, 0.8);
+}
+
+.header_left h4 span {
+    background: #00a46f;
+    color: #fff;
+    border-radius: 5px;
+    padding: 1px 10px;
+    font-size: var(--size14);
+    margin-left: 5px;
+}
+
+.header_left h4 img{
+    height: 30px;
+    margin-left: 5px;
+}
+
+/********* Body ********/
+
 
 .main_body {
-    background: #fff;
-    padding: 30px 20px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
+
+
+/********* footer ********/
 
 footer p {
     text-align: center;

@@ -4,39 +4,43 @@ import { TbBrandCodepen } from "react-icons/tb";
 import { FaUsers } from "react-icons/fa";
 import { MdCampaign } from "react-icons/md";
 import { AiOutlinePartition } from "react-icons/ai";
+import { getDynamicPath } from '@helper/PathHelper';
 
 export const MenuItems = [
     {
         title: 'Dashboard',
-        path: '/dashboard/home',
+        path: getDynamicPath('/home'),
         icon: <FaHome />,
     },
     {
-        title: 'Organizations',
-        path: '/organizations',
+        title: 'Organization',
+        path: getDynamicPath('/organization'),
         icon: <FaBuilding />,
     },
     {
-        title: 'Brands',
-        path: '/brands',
+        title: 'Brand',
+        path: getDynamicPath('/brand'),
         icon: <TbBrandCodepen />,
     },
     {
         title: 'User',
-        path: '/user',
+        path: getDynamicPath('/user'),
         icon: <FaUsers />,
     },
     {
         title: 'Campaign',
         icon: <MdCampaign />,
         children: [
-            { title: 'Campaign', path: '/campaign' },
-            { title: 'Deals', path: '/deals' },
+            { title: 'Campaign', path: getDynamicPath('/campaign') },
+            { title: 'Deals', path: getDynamicPath('/campaign', 'deal') },
+            { title: 'Gift', path: getDynamicPath('/campaign', 'gift') },
+            { title: 'Sample', path: getDynamicPath('/campaign', 'sample') },
+            { title: 'Usership', path: getDynamicPath('/campaign', 'usership') },
         ],
     },
     {
         title: 'BA',
-        path: '/ba',
+        path: getDynamicPath('/ba'),
         icon: <AiOutlinePartition />,
     },
   ];

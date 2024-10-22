@@ -39,7 +39,7 @@
 }
 
 .auth-form-head h2 {
-    font-size: 22px;
+    font-size: var(--size22);
     margin: 5px 0;
     color: var(--primary-color);
     font-family: var(--family);
@@ -47,7 +47,7 @@
 }
 
 .auth-form-head p {
-    color: var(--primary-color);
+    color: rgba(82, 82, 108, 0.8);
     font-family: var(--family);
     font-weight: var(--weight-regular);
     font-size: var(--size16);
@@ -142,6 +142,10 @@
 
 .platform span {
     margin-right: 3px;
+}
+
+.platform a {
+    color: rgba(82, 82, 108, 0.8);
 }
 
 .auth-form-btn .site-btn[disabled] {

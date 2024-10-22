@@ -10,21 +10,22 @@ import AuthLayout from  '@layouts/authLayout/AuthLayout';
 /************* Authorized *************/
 
 import Home from '@authPages/home/Home';
-// import Inbox from '../pages/authorized/inbox/Inbox';
-// import Recruiting from '../pages/authorized/recruiting/Recruiting';
-// import Calendar from '../pages/authorized/calendar/Calendar';
-// import Reporting from '../pages/authorized/reporting/Reporting';
-// import Automations from '../pages/authorized/automations/Automations';
-// import Imports from '../pages/authorized/imports/Imports';
-// import Marketplace from '../pages/authorized/marketplace/Marketplace';
+import Organization from '@authPages/organization/Organization';
+import Brand from '@authPages/brand/Brand';
+import User from '@authPages/user/User';
+import Campaign from '@authPages/campaign/Campaign';
+import BA from '@authPages/ba/BA';
 
-// import Overview from '../pages/authorized/employees/overview/Overview';
-// import Performance from '../pages/authorized/employees/performance/Performance';
-// import Training from '../pages/authorized/employees/training/Training';
 
-// import Employee from '../pages/authorized/employees/overview/employee/Employee';
-// import AddEmployee from '../pages/authorized/employees/overview/employee/AddEmployee';
-// import EmployeeDetail from '../pages/authorized/employees/overview/employee/EmployeeDetail';
+/************* Sub Menu *************/
+import Deal from '@authPages/deal/Deal';
+import Gift from '@authPages/gift/Gift';
+import Sample from '@authPages/sample/Sample';
+import Usership from '@authPages/usership/Usership';
+
+/************* Not Found Links *************/
+import NotFound from '@components/NotFound';
+
 
 
 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Navigate to="/auth/login" />,
+        errorElement: <NotFound />,
     },
     {
         path: '/dashboard',
@@ -39,23 +41,23 @@ const router = createBrowserRouter([
         children: [
             { path: '', element: <Navigate to="home" /> },
             { path: 'home', element: <Home /> },
-            // { path: 'inbox', element: <Inbox /> },
-            // { path: 'recruiting', element: <Recruiting /> },
-            // { path: 'calendar', element: <Calendar /> },
-            // { path: 'reporting', element: <Reporting /> },
-            // { path: 'automations', element: <Automations /> },
-            // { path: 'imports', element: <Imports /> },
-            // { path: 'marketplace', element: <Marketplace /> },
-
-            // { path: 'overview', element: <Overview /> },
-            // { path: 'performance', element: <Performance /> },
-            // { path: 'training', element: <Training /> },
-
-            // { path: 'employee', element: <Employee /> },
-            // { path: 'employee-add', element: <AddEmployee /> },
-            // { path: 'employee-detail/:id', element: <EmployeeDetail /> },
-        
+            { path: 'organization', element: <Organization /> },
+            { path: 'brand', element: <Brand /> },
+            { path: 'user', element: <User /> },
+            { 
+                path: 'campaign', 
+                element: <Campaign />,
+                children: [
+                    { path: '', element: <Navigate to="deal" /> },
+                    { path: 'deal', element: <Deal /> },
+                    { path: 'gift', element: <Gift /> },
+                    { path: 'sample', element: <Sample /> },
+                    { path: 'usership', element: <Usership /> },
+                ]
+            },
+            { path: 'ba', element: <BA /> }
         ],
+        errorElement: <NotFound />,
     },
     {
         path: '/auth',
@@ -64,6 +66,7 @@ const router = createBrowserRouter([
             { path: '', element: <Navigate to="login" /> },
             { path: 'login',element: <Login /> }
         ],
+        errorElement: <NotFound />,
     },
 ]);
 
