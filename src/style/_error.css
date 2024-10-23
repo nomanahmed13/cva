@@ -1,0 +1,36 @@
+.not_found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.not_found h1 {
+    font-size: 45px;
+    font-family: var(--family);
+    font-weight: var(--weight-bold);
+    color: #000;
+}
+
+.not_found p {
+    font-size: var(--size20);
+    font-family: var(--family);
+    font-weight: var(--weight-regular);
+    color: #000000;
+    margin: 0 0 30px;
+    text-transform: capitalize;
+}
+
+.not_found a {
+    padding: 8px 25px;
+    border: 0;
+    background: linear-gradient(135deg, #00A76F, #007867);
+    border-radius: 5px;
+    color: #fff;
+    font-size: var(--size20);
+    font-family: var(--family);
+    font-weight: var(--weight-regular);
+    text-transform: capitalize;
+    text-decoration: none;
+    display: inline-block;
+}

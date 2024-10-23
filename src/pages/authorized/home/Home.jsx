@@ -1,32 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaHandsClapping } from "react-icons/fa6";
 import { PiDoorOpenDuotone } from "react-icons/pi";
 import { IoCallSharp } from "react-icons/io5";
 import { SlGraph } from "react-icons/sl";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { RiRepeatFill } from "react-icons/ri";
+import { MdOutlineFilterAlt } from "react-icons/md";
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { DateRangePicker } from 'react-dates';
 import '@styles/_home.css';
 
 const Home = () => {
+
+  /* UseState Here...*/
+  const [dateRange, setDateRange] = useState({
+    startDate: null,
+    endDate: null
+  });
+  const [focusedDate, setFocusedDate] = useState(false);
+
+
+  /* Functions Here...*/
+  const handleDateChange = (focusedDate) => {
+    setFocusedDate(focusedDate);
+  };
+  const handleDatesChange = ({ startDate, endDate }) => {
+    setDateRange({ startDate, endDate });
+  };
+
+
   return (
     <div className='dashboard_wrap'>
       <div className='dashboard_filter'>
          <div className='left'>
-            <span>filters</span>
+            <span><MdOutlineFilterAlt /> filters</span>
          </div> 
          <div className='right'>
             <form>
               <div className='form_group'>
-                <label>select city</label>
                 <select>
-                  <option>select</option>
+                  <option>select city</option>
                 </select>
               </div>
               <div className='form_group'>
-                <label>select campaign</label>
                 <select>
-                  <option>select</option>
+                  <option>select campaign</option>
                 </select>
+              </div>
+              <div className='form_group'>
+                <DateRangePicker
+                  startDate={dateRange.startDate} 
+                  startDateId="your_unique_start_date_id"
+                  endDate={dateRange.endDate} 
+                  endDateId="your_unique_end_date_id"
+                  onDatesChange={handleDatesChange}
+                  focusedInput={focusedDate}
+                  onFocusChange={handleDateChange}
+                  minimumNights={0}
+                  isOutsideRange={() => false}
+                />
               </div>
               <div className='btn_group'>
                 <button>search</button>

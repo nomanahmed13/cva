@@ -21,4 +21,7 @@ export default defineConfig({
       '@helper': path.resolve(__dirname, 'src/helpers'),
     },
   },
+  define: {
+    global: {},
+  },
 })
