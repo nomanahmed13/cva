@@ -81,10 +81,6 @@
     border-radius: 5px;
 }
 
-.dashboard_filter form div {
-    width: 33%;
-}
-
 .dashboard_filter form .btn_group {
     display: flex;
     align-items: center;
