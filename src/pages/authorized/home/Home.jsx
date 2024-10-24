@@ -6,28 +6,22 @@ import { SlGraph } from "react-icons/sl";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { RiRepeatFill } from "react-icons/ri";
 import { MdOutlineFilterAlt } from "react-icons/md";
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
-import { DateRangePicker } from 'react-dates';
+import DatePicker, { DateObject } from "react-multi-date-picker";
+import InputIcon from "react-multi-date-picker/components/input_icon"
+import transition from "react-element-popper/animations/transition"
 import '@styles/_home.css';
 
 const Home = () => {
 
+  /* Variables Here...*/
+
+  
   /* UseState Here...*/
-  const [dateRange, setDateRange] = useState({
-    startDate: null,
-    endDate: null
-  });
-  const [focusedDate, setFocusedDate] = useState(false);
+  const [value, setValue] = useState([]);
 
 
   /* Functions Here...*/
-  const handleDateChange = (focusedDate) => {
-    setFocusedDate(focusedDate);
-  };
-  const handleDatesChange = ({ startDate, endDate }) => {
-    setDateRange({ startDate, endDate });
-  };
+ 
 
 
   return (
@@ -48,17 +42,20 @@ const Home = () => {
                   <option>select campaign</option>
                 </select>
               </div>
-              <div className='form_group'>
-                <DateRangePicker
-                  startDate={dateRange.startDate} 
-                  startDateId="your_unique_start_date_id"
-                  endDate={dateRange.endDate} 
-                  endDateId="your_unique_end_date_id"
-                  onDatesChange={handleDatesChange}
-                  focusedInput={focusedDate}
-                  onFocusChange={handleDateChange}
-                  minimumNights={0}
-                  isOutsideRange={() => false}
+              <div className='form_group custom_date_picker'>
+                <DatePicker 
+                  value={value} 
+                  onChange={setValue} 
+                  range 
+                  dateSeparator=" - "
+                  numberOfMonths={2}
+                  //render={<InputIcon/>}
+                  animations={[
+                    transition({ duration: 800, from: 35 })
+                  ]} 
+                  placeholder="Start Date - End Date"
+                  showOtherDays
+                  monthYearSeparator="-"
                 />
               </div>
               <div className='btn_group'>

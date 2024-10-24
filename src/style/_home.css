@@ -81,6 +81,19 @@
     border-radius: 5px;
 }
 
+.dashboard_filter .custom_date_picker .rmdp-input {
+    padding: 8px 35px 8px 15px;
+    outline: none;
+    border: 1px solid #00a46f;
+    font-size: var(--size16);
+    font-family: var(--family);
+    font-weight: var(--weight-regular);
+    text-transform: capitalize;
+    border-radius: 5px;
+    height: auto;
+    margin: 0;
+}
+
 .dashboard_filter form .btn_group {
     display: flex;
     align-items: center;
