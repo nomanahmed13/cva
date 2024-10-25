@@ -10,6 +10,7 @@ import DatePicker, { DateObject } from "react-multi-date-picker";
 import InputIcon from "react-multi-date-picker/components/input_icon"
 import transition from "react-element-popper/animations/transition"
 import '@styles/_home.css';
+// import DashboardLayers from '@icon/DashboardLayers';
 
 const Home = () => {
 
@@ -66,35 +67,35 @@ const Home = () => {
          </div>
       </div>
       <div className='top_bar'>
-          <div className='box'>
-              <FaHandsClapping />
-              <h3>0</h3>
+          <div className='box blue'>
               <span>Total Knocks</span>
-          </div>
-          <div className='box'>
-              <PiDoorOpenDuotone />
               <h3>0</h3>
+              {/* <DashboardLayers /> */}
+          </div>
+          <div className='box red'>
               <span>Doors Answered</span>
-          </div>
-          <div className='box'>
-              <IoCallSharp />
               <h3>0</h3>
+              {/* <DashboardLayers /> */}
+          </div>
+          <div className='box green'>
               <span>Productive Calls</span>
-          </div>
-          <div className='box'>
-              <SlGraph />
               <h3>0</h3>
+              {/* <DashboardLayers /> */}
+          </div>
+          <div className='box orange'>
               <span>Productivity</span>
-          </div>
-          <div className='box'>
-              <BsCurrencyDollar />
               <h3>0</h3>
+              {/* <DashboardLayers /> */}
+          </div>
+          <div className='box purple'>
               <span>Revenue in PKR</span>
-          </div>
-          <div className='box'>
-              <RiRepeatFill />
               <h3>0</h3>
+              {/* <DashboardLayers /> */}
+          </div>
+          <div className='box yellow'>
               <span>Conversion Rate</span>
+              <h3>0</h3>
+              {/* <DashboardLayers /> */}
           </div>
       </div>
     </div>

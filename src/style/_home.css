@@ -5,9 +5,34 @@
 }
 
 .top_bar .box {
-    background: linear-gradient(135deg, #00A76F, #007867);
+    /* background: linear-gradient(135deg, #00A76F, #007867); */
     border-radius: 5px;
     padding: 15px 15px;
+    position: relative;
+}
+
+.top_bar .blue {
+    background: linear-gradient(to right, rgb(1, 98, 232) 0, rgba(1, 98, 232, 0.5) 100%);
+}
+
+.top_bar .red {
+    background: linear-gradient(45deg, #f93a5a, #f7778c);
+}
+
+.top_bar .green {
+    background: linear-gradient(to left, #48d6a8 0, #029666 100%);
+}
+
+.top_bar .orange {
+    background: linear-gradient(to left, #efa65f, #f76a2d);
+}
+
+.top_bar .purple {
+    background: linear-gradient(to right, #8252E9 0, rgba(209, 191, 248, 0.5) 100%);
+}
+
+.top_bar .yellow {
+    background: linear-gradient(to right, #fbbc04 0, rgb(253 213 0 / 66%) 100%);
 }
 
 .top_bar .box svg {
@@ -18,9 +43,9 @@
 .top_bar .box h3 {
     font-family: var(--family);
     font-weight: var(--weight-regular);
-    font-size: var(--size30);
+    font-size: var(--size22);
     color: #fff;
-    margin: 5px 0;
+    margin: 5px 0 20px;
 }
 
 .top_bar .box span {
@@ -30,12 +55,12 @@
     color: #fff;
 }
 
-.dashboard_filter .left {
+/* .dashboard_filter .left {
     width: 10%;
-}
+} */
 
 .dashboard_filter  .right {
-    width: 90%;
+    width: 100%;
 }
 
 .dashboard_filter {
@@ -46,7 +71,8 @@
 }
 
 .dashboard_filter .left span {
-    background: linear-gradient(135deg, #00A76F, #007867);
+    /* background: linear-gradient(135deg, #00A76F, #007867); */
+    background: #405189;
     border-radius: 5px;
     padding: 8px 15px;
     color: #fff;
@@ -69,11 +95,15 @@
     gap: 15px;
 }
 
+.dashboard_filter form  .form_group {
+    width: 25%;
+}
+
 .dashboard_filter form select {
     padding: 8px 15px;
     width: 100%;
     outline: none;
-    border: 1px solid #00a46f;
+    border: 1px solid #405189;
     font-size: var(--size16);
     font-family: var(--family);
     font-weight: var(--weight-regular);
@@ -81,16 +111,21 @@
     border-radius: 5px;
 }
 
+.dashboard_filter .custom_date_picker .rmdp-container {
+    display: block !important;
+}
+
 .dashboard_filter .custom_date_picker .rmdp-input {
     padding: 8px 35px 8px 15px;
     outline: none;
-    border: 1px solid #00a46f;
+    border: 1px solid #405189;
     font-size: var(--size16);
     font-family: var(--family);
     font-weight: var(--weight-regular);
     text-transform: capitalize;
     border-radius: 5px;
     height: auto;
+    width: 100%;
     margin: 0;
 }
 
@@ -98,13 +133,14 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    width: 25%;
 }
 
 .dashboard_filter form .btn_group button {
     width: 100%;
     padding: 8px 15px;
     border: 0;
-    background: linear-gradient(135deg, #00A76F, #007867);
+    background: #405189;
     border-radius: 5px;
     color: #fff;
     font-size: var(--size16);
