@@ -9,8 +9,6 @@
 .sidebar {
     transition: all 0.2s, background 0s;
     position: relative;
-    /* background: #006666; */
-    /* background: #007f68; */
     background: #405189;
     box-shadow: 0 0.125rem 0.25rem rgba(165, 163, 174, 0.3);
     width: 100%;
@@ -91,14 +89,12 @@
 }
 
 .sidebar_menu li a.active {
-    /* background-color: rgba(255, 255, 255, 0.2); */
     background: #202f5f;
 }
 
 .sidebar_menu li a svg {
     font-size: var( --size20);
     margin-right: 15px;
-    /* color: rgba(255, 255, 255, 0.8); */
     color: #fff;
 }
 
@@ -118,7 +114,6 @@
 .sidebar_menu li a .sub_menu_icon svg {
     margin: 0;
     font-size: initial;
-    /* color: rgba(255, 255, 255, 0.8); */
     color: #fff;
 }
 
@@ -130,7 +125,6 @@
 }
 
 .sub_menu li a {
-    /* color: rgba(255, 255, 255, 0.8); */
     color: #fff;
     font-family: var(--family);
     font-weight: var(--weight-regular);
@@ -144,7 +138,6 @@
     position: absolute;
     width: 1px;
     height: 0;
-    /* background: rgba(255, 255, 255, 0.4); */
     background: #abb9e8;
     top:4px;
     left: 20px;
@@ -186,7 +179,6 @@
 .site_main {
     width: 100%;
     background: #ededed;
-    /* padding: 10px 20px; */
     display: flex;
     flex-direction: column;
 }
@@ -194,7 +186,6 @@
 .main_header {
     padding: 15px;
     background: #fff;
-    /* border-radius: 5px; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
     align-items: center;
@@ -332,7 +323,6 @@
 
 
 .main_body {
-    /* border-radius: 5px; */
     padding: 15px;
     display: flex;
     flex-direction: column;

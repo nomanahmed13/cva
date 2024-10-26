@@ -6,11 +6,16 @@ import { SlGraph } from "react-icons/sl";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { RiRepeatFill } from "react-icons/ri";
 import { MdOutlineFilterAlt } from "react-icons/md";
-import DatePicker, { DateObject } from "react-multi-date-picker";
-import InputIcon from "react-multi-date-picker/components/input_icon"
+import DatePicker from "react-multi-date-picker";
 import transition from "react-element-popper/animations/transition"
 import '@styles/_home.css';
-// import DashboardLayers from '@icon/DashboardLayers';
+import im1 from '@assets/1.png'
+import im2 from '@assets/2.png'
+import im3 from '@assets/3.png'
+import im4 from '@assets/4.png'
+import im5 from '@assets/5.png'
+import im6 from '@assets/6.png'
+import ReactApexChart from 'react-apexcharts';
 
 const Home = () => {
 
@@ -23,10 +28,102 @@ const Home = () => {
 
   /* Functions Here...*/
  
+  
+  /*** Knocks Charts ******/
+  
+  const options = {
+    chart: {
+      type: 'bar',
+      toolbar: {
+        show: false
+      }
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: '55%',
+        endingShape: 'rounded'
+      },
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      show: true,
+      width: 2,
+      colors: ['transparent']
+    },
+    xaxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    },
+    yaxis: {
+      title: {
+        text: 'Values'
+      }
+    },
+    fill: {
+      opacity: 1
+    },
+    tooltip: {
+      y: {
+        formatter: (val) => `${val} units`
+      }
+    }
+  };
 
+  const series = [
+    {
+      name: 'Series 1',
+      data: [44, 55, 41, 67, 22, 43, 21]
+    },
+    {
+      name: 'Series 2',
+      data: [13, 23, 20, 8, 13, 27, 33]
+    }
+  ];
+
+
+    /*** Target Achieve ******/
+    const tOptions = {
+      chart: {
+        type: 'radialBar',
+        height: 350,
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: -90,
+          endAngle: 90,
+          track: {
+            background: '#f0f0f0',
+            strokeWidth: '100%',
+          },
+          dataLabels: {
+            name: {
+              show: false,
+            },
+            value: {
+              offsetY: -10,
+              fontSize: '22px',
+              fontWeight: 600,
+              color: '#000',
+              formatter: function (val) {
+                return `${val}%`;
+              }
+            }
+          }
+        }
+      },
+      colors: ['#007bff'],
+      stroke: {
+        dashArray: 4
+      },
+    };
+  
+    const TSeries = [83]; 
 
   return (
     <div className='dashboard_wrap'>
+      
       <div className='dashboard_filter'>
          <div className='left'>
             <span><MdOutlineFilterAlt /> filters</span>
@@ -50,7 +147,6 @@ const Home = () => {
                   range 
                   dateSeparator=" - "
                   numberOfMonths={2}
-                  //render={<InputIcon/>}
                   animations={[
                     transition({ duration: 800, from: 35 })
                   ]} 
@@ -68,36 +164,125 @@ const Home = () => {
       </div>
       <div className='top_bar'>
           <div className='box blue'>
-              <span>Total Knocks</span>
-              <h3>0</h3>
-              {/* <DashboardLayers /> */}
+              <div className='icon' style={{background: '#487FFF'}}>
+                <FaHandsClapping />
+              </div>
+              <div className='disc'>
+                <span>Total Knocks</span>
+                <h3>0</h3>
+              </div>
+              <img src={im1} />
           </div>
           <div className='box red'>
-              <span>Doors Answered</span>
-              <h3>0</h3>
-              {/* <DashboardLayers /> */}
+              <div className='icon' style={{background: '#45B369'}}>
+                <PiDoorOpenDuotone />
+              </div>
+              <div className='disc'>
+                <span>Doors Answered</span>
+                <h3>0</h3>
+              </div>
+              <img src={im2} />
           </div>
           <div className='box green'>
-              <span>Productive Calls</span>
-              <h3>0</h3>
-              {/* <DashboardLayers /> */}
+              <div className='icon' style={{background: '#F4941E'}}>
+                <IoCallSharp />
+              </div>
+              <div className='disc'>
+                <span>Productive Calls</span>
+                <h3>0</h3>
+              </div>
+              <img src={im3} />
           </div>
           <div className='box orange'>
-              <span>Productivity</span>
-              <h3>0</h3>
-              {/* <DashboardLayers /> */}
+              <div className='icon' style={{background: '#8252E9'}}>
+                <SlGraph />
+              </div>
+              <div className='disc'>
+                <span>Productivity</span>
+                <h3>0</h3>
+              </div>
+              <img src={im4} />
           </div>
           <div className='box purple'>
-              <span>Revenue in PKR</span>
-              <h3>0</h3>
-              {/* <DashboardLayers /> */}
+              <div className='icon' style={{background: '#DE3ACE'}}>
+                <BsCurrencyDollar />
+              </div>
+              <div className='disc'>
+                <span>Revenue in PKR</span>
+                <h3>0</h3>
+              </div>
+              <img src={im5} />
           </div>
           <div className='box yellow'>
-              <span>Conversion Rate</span>
-              <h3>0</h3>
-              {/* <DashboardLayers /> */}
+              <div className='icon' style={{background: '#00B8F2'}}>
+                <RiRepeatFill />
+              </div>
+              <div className='disc'>
+                <span>Conversion Rate</span>
+                <h3>0</h3>
+              </div>
+              <img src={im6} />
           </div>
       </div>
+       <div className='chart_wrap'>
+           <div className='chart_box knocks'> 
+              <h2>knocks</h2>
+              <p className='txt'>Daywise Statistical Overview</p>
+              <ReactApexChart options={options} series={series} type="bar" height={350} />
+           </div>   
+           <div className='chart_box target_achieve'> 
+              <h2>Target Achieve</h2>
+              <p className='txt'>Number of Deals, sold till now</p>
+              <div className='target_chart_wrap'>
+                  <div className='left'>
+                    <ReactApexChart options={tOptions} series={TSeries} type="radialBar" height={350} />
+                    <div className='content'> 
+                       <p>Yesterday Target Achieve</p>
+                       <span className='s1'>deals sold</span> 
+                       <span className='s2'>total entries</span> 
+                    </div>
+                  </div>
+                  <div className='right'>
+                    <ReactApexChart options={tOptions} series={TSeries} type="radialBar" height={350} />
+                    <div className='content'> 
+                       <p>Monthly Target Achieve</p>
+                       <span className='s1'>deals sold</span> 
+                       <span className='s2'>total entries</span> 
+                    </div>
+                  </div>
+              </div>
+           </div>  
+           <div className='chart_box usership'> 
+              <h2>usership</h2>
+              <p className='txt'>Statistical overview of customers, who have bought and didn't bought the deals</p>
+              <ReactApexChart options={options} series={series} type="bar" height={350} />
+           </div>
+           <div className='chart_box pitches'> 
+              <h2>pitches</h2>
+              <p className='txt'>Ratio of pitches listened and buy</p>
+              <ReactApexChart options={options} series={series} type="bar" height={350} />
+           </div>   
+       </div>           
+       <div className='chart_wrap buyers_chart'>
+           <div className='chart_box'> 
+              <h2>buyers chart</h2>
+              <p className='txt'>Number of deals purchased by unique customers</p>
+              <ReactApexChart options={options} series={series} type="bar" height={350} />
+           </div>   
+       </div> 
+       <div className='chart_wrap'>
+           <div className='chart_box door_answered'> 
+              <h2>door answered</h2>
+              <p className='txt'>Ratio of Non Associated and Associated Userships</p>
+              <ReactApexChart options={options} series={series} type="bar" height={350} />
+           </div>   
+           <div className='chart_box deals'> 
+              <h2>deals</h2>
+              <p className='txt'>Number of Deals, sold till now</p>
+              <ReactApexChart options={options} series={series} type="bar" height={350} />
+           </div>   
+       </div> 
+
     </div>
   )
 }

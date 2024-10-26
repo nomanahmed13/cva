@@ -11,6 +11,7 @@ import AuthFormLogo from  '@assets/cva-logo.png';
 import hand from '@assets/hand.gif';
 import { RxDashboard } from "react-icons/rx";
 import '@styles/_dashboard.css';
+import BackToTopButton from '@components/BackToTopButton';
 
 const DashboardLayout = () => {
 
@@ -96,6 +97,7 @@ const DashboardLayout = () => {
             <p>© {currentYear} CVA. All Rights Reserved.</p>
           </footer>
       </main>
+      <BackToTopButton />
     </div>
   )
 }
