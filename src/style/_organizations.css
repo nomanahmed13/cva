@@ -1,0 +1,43 @@
+/* Table container styling */
+.container {
+    max-width: 1200px;
+}
+
+/* Header styling */
+h5 {
+    color: #6c757d;
+}
+
+/* Table controls */
+.table-controls .form-select,
+.table-controls input[type="text"] {
+    border-radius: 4px;
+}
+
+/* Export and Add Record buttons */
+.btn-outline-primary,
+.btn-primary {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #7b61ff;
+    border-color: #7b61ff;
+}
+
+.btn-outline-primary:hover,
+.btn-primary:hover {
+    background-color: #6a52e8;
+    border-color: #6a52e8;
+}
+
+/* Pagination buttons */
+.pagination .btn-outline-secondary {
+    color: #6c757d;
+}
+
+.pagination .btn-outline-secondary:disabled {
+    background-color: #f7f8fc;
+    color: #bbb;
+}

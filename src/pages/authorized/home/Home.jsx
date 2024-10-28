@@ -229,8 +229,8 @@ const Home = () => {
            <div className='chart_box knocks'> 
               <h2>knocks</h2>
               <p className='txt'>Daywise Statistical Overview</p>
-              {/* <ReactApexChart options={options} series={series} type="bar" height={350} /> */}
-              <KnocksChart data={data?.knockData} isLoading={isLoading} />
+              <ReactApexChart options={options} series={series} type="bar" height={350} />
+              {/* <KnocksChart data={data?.knockData} isLoading={isLoading} /> */}
            </div>   
            <div className='chart_box target_achieve'> 
               <h2>Target Achieve</h2>
