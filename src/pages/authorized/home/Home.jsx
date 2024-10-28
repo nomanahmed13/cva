@@ -16,6 +16,7 @@ import im4 from '@assets/4.png'
 import im5 from '@assets/5.png'
 import im6 from '@assets/6.png'
 import ReactApexChart from 'react-apexcharts';
+import KnocksChart from '@view/KnocksChart';
 
 const Home = () => {
 
@@ -228,7 +229,8 @@ const Home = () => {
            <div className='chart_box knocks'> 
               <h2>knocks</h2>
               <p className='txt'>Daywise Statistical Overview</p>
-              <ReactApexChart options={options} series={series} type="bar" height={350} />
+              {/* <ReactApexChart options={options} series={series} type="bar" height={350} /> */}
+              <KnocksChart data={data?.knockData} isLoading={isLoading} />
            </div>   
            <div className='chart_box target_achieve'> 
               <h2>Target Achieve</h2>
